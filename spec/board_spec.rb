@@ -20,9 +20,16 @@ describe Board do
 		expect(board.register_shot("A6")).to eq([1][6])	
 	end	
 
-	it  "should show water hit" do
+	it "should show water hit" do
 		board.register_shot("A6")
 		expect(board.rows[1][6]).to eq("o")
 	end	
+
+	# it "should show ship hit" do
+	# 	board
+	# 	@array[3][5] = "s"
+	# 	board.register_shot("C5")
+	# 	expect(board.rows[3][5]).to eq("x")
+	# end
 
 end	

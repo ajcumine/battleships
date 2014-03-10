@@ -16,7 +16,7 @@ COLUMNS ={
 class Board
   def initialize(player)
     @player = player
-
+    @array = Array.new(10) {Array.new(10, "")}
   end
   
   def owner
@@ -28,12 +28,13 @@ class Board
   # hitting a ship or
   # just hitting the water.
   def register_shot(at_coordinates)
-    y = []
+    x = []
     arr = at_coordinates.split(//)
-    x = arr[1].to_i
-    COLUMNS.each {|k,v| y = v if arr[0].include?(k)}
-    final = [y][x]
-    @rows[y][x] = "o" if @rows[y][x] == ""
+    y = arr[1].to_i
+    COLUMNS.each {|k,v| x = v if arr[0].include?(k)}
+    @array[x][y] = "o" if @array[x][y] == ""
+    
+    final = [x][y]
   end
   
   # This method returns an array containing 10 arrays with 10 
@@ -46,7 +47,7 @@ class Board
   # that you have
   # four different types
   def rows
-    @rows = Array.new(10) {Array.new(10, "")}
+    @array
   end
   
 #   # This method returns an array containing 10 arrays with 10
