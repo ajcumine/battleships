@@ -32,7 +32,8 @@ class Board
     arr = at_coordinates.split(//)
     x = arr[1].to_i
     COLUMNS.each {|k,v| y = v if arr[0].include?(k)}
-    final = [y, x]
+    final = [y][x]
+    @rows[y][x] = "o" if @rows[y][x] == ""
   end
   
   # This method returns an array containing 10 arrays with 10 
@@ -45,7 +46,7 @@ class Board
   # that you have
   # four different types
   def rows
-    @array = Array.new(10, Array.new(10, ""))
+    @rows = Array.new(10) {Array.new(10, "")}
   end
   
 #   # This method returns an array containing 10 arrays with 10
