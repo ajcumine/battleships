@@ -21,11 +21,14 @@ describe Board do
 		expect(board.rows[1][6]).to eq("o")
 	end	
 
-	# it "should show ship hit" do
-	# 	board
-	# 	@array[3][5] = "s"
-	# 	board.register_shot("C5")
-	# 	expect(board.rows[3][5]).to eq("x")
-	# end
+	it "should have ships size 2" do
+		board.add_ships	
+		expect(board.rows.flatten.count("s")).to eq(2)
+	end
+
+	it "should not overlap ships" do
+		board.add_ships
+		expect(board.rows.flatten.count("s")).to eq(31)
+	end
 
 end	
