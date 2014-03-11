@@ -1,17 +1,3 @@
-COLUMNS ={
-
-"A" => 1,
-"B" => 2,
-"C" => 3,
-"D" => 4,
-"E" => 5,
-"F" => 6,
-"G" => 7,
-"H" => 8,
-"I" => 9,
-"J" => 10
-}
-
 
 class Board
   def initialize(player)
@@ -28,13 +14,7 @@ class Board
   # hitting a ship or
   # just hitting the water.
   def register_shot(at_coordinates)
-    x = []
-    arr = at_coordinates.split(//)
-    y = arr[1].to_i
-    COLUMNS.each {|k,v| x = v if arr[0].include?(k)}
-    @array[x][y] = "o" if @array[x][y] == ""
-    
-    final = [x][y]
+    @array[at_coordinates[0]][at_coordinates[1]] = "o" if @array[at_coordinates[0]][at_coordinates[1]] == ""
   end
   
   # This method returns an array containing 10 arrays with 10 

@@ -16,12 +16,8 @@ describe Board do
 		expect(board.rows[0].count("")).to eq(10)
 	end	
 
-	it "should convert coordinates" do
-		expect(board.register_shot("A6")).to eq([1][6])	
-	end	
-
 	it "should show water hit" do
-		board.register_shot("A6")
+		board.register_shot([1,6])
 		expect(board.rows[1][6]).to eq("o")
 	end	
 
